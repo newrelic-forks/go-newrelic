@@ -13,9 +13,12 @@ GODOC         = godocdown
 DOC_DIR       = ./docs/
 GOLINTER      = golangci-lint
 
+# This should move under /pkg/
+PACKAGES = ${SRCDIR}/api
+
 # Determine packages by looking into pkg/*
 ifneq ("$(wildcard ${SRCDIR}/pkg/*)","")
-	PACKAGES  = $(wildcard ${SRCDIR}/pkg/*)
+	PACKAGES += $(wildcard ${SRCDIR}/pkg/*)
 endif
 ifneq ("$(wildcard ${SRCDIR}/internal/*)","")
 	PACKAGES += $(wildcard ${SRCDIR}/internal/*)

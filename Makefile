@@ -37,7 +37,7 @@ LDFLAGS='-X main.Version=$(PROJECT_VER)'
 all: build
 
 # Humans running make:
-build: check-version clean lint test-unit cover-report compile document
+build: check-version clean lint test cover-report compile document
 
 # Build command for CI tooling
 build-ci: check-version clean lint test compile-only

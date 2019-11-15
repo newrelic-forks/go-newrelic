@@ -72,18 +72,18 @@ type AlertNrqlQuery struct {
 
 // AlertNrqlCondition represents a New Relic NRQL Alert condition.
 type AlertNrqlCondition struct {
-	PolicyID            int                  `json:"-"`
-	ID                  int                  `json:"id,omitempty"`
+	Nrql                AlertNrqlQuery       `json:"nrql,omitempty"`
+	Terms               []AlertConditionTerm `json:"terms,omitempty"`
 	Type                string               `json:"type,omitempty"`
 	Name                string               `json:"name,omitempty"`
-	Enabled             bool                 `json:"enabled"`
 	RunbookURL          string               `json:"runbook_url,omitempty"`
-	Terms               []AlertConditionTerm `json:"terms,omitempty"`
 	ValueFunction       string               `json:"value_function,omitempty"`
+	PolicyID            int                  `json:"-"`
+	ID                  int                  `json:"id,omitempty"`
 	ExpectedGroups      int                  `json:"expected_groups,omitempty"`
-	IgnoreOverlap       bool                 `json:"ignore_overlap,omitempty"`
-	Nrql                AlertNrqlQuery       `json:"nrql,omitempty"`
 	ViolationCloseTimer int                  `json:"violation_time_limit_seconds,omitempty"`
+	Enabled             bool                 `json:"enabled"`
+	IgnoreOverlap       bool                 `json:"ignore_overlap,omitempty"`
 }
 
 // AlertPlugin represents a plugin to use with a Plugin alert condition.

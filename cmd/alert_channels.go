@@ -35,7 +35,9 @@ var getAlertChannelsCmd = makeChannelsCmd(cobra.Command{
 		var resources []api.AlertChannel
 
 		if id != 0 {
-			resource, err := client.GetAlertChannel(id)
+			var resource *api.AlertChannel
+
+			resource, err = client.GetAlertChannel(id)
 			if err != nil {
 				return err
 			}

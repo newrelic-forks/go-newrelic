@@ -35,7 +35,9 @@ var getKeyTransactionsCmd = makeKeyTransactionsCmd(cobra.Command{
 		var resources []api.KeyTransaction
 
 		if id != 0 {
-			resource, err := client.GetKeyTransaction(id)
+			var resource *api.KeyTransaction
+
+			resource, err = client.GetKeyTransaction(id)
 			if err != nil {
 				return err
 			}

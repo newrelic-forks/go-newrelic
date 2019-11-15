@@ -96,22 +96,22 @@ var deleteDeploymentCmd = makeDeploymentsCmd(cobra.Command{
 			return err
 		}
 
-		appId, err := cmd.Flags().GetInt("application-id")
+		appID, err := cmd.Flags().GetInt("application-id")
 		if err != nil {
 			return err
 		}
 
-		depId, err := cmd.Flags().GetInt("deployment-id")
+		depID, err := cmd.Flags().GetInt("deployment-id")
 		if err != nil {
 			return err
 		}
 
-		err = client.DeleteDeployment(appId, depId)
+		err = client.DeleteDeployment(appID, depID)
 		if err != nil {
 			return err
 		}
 
-		fmt.Printf("Application deployment '%v' deleted.\n", depId)
+		fmt.Printf("Application deployment '%v' deleted.\n", depID)
 
 		return nil
 	},
